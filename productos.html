@@ -1,0 +1,15 @@
+<hr>
+<h2>Productos</h2>
+<hr>
+Producto <input type="text" ng-model="lista.nombre"><br>
+Precio <input type="text" ng-model="lista.precio"><br>
+<input type="button" value="Añadir" ng-click="lista.addProducto()"><br>
+<hr>
+<h2>Lista de productos</h2>
+<hr>
+<ul>
+    <li ng-repeat="product in lista.producto">
+        {{ product.nombre}}
+    </li>
+</ul>
+<hr>

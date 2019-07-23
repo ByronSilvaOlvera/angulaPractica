@@ -1,0 +1,18 @@
+{
+  "name": "cajeroby",
+  "version": "1.0.0",
+  "description": "Prueba de cajero",
+  "main": "angular-route.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "byronsjimb@gmail.com"
+  },
+  "keywords": [
+    "by"
+  ],
+  "author": "byrons",
+  "license": "ISC"
+}
