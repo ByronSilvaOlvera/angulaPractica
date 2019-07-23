@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module("apps",["ngRoute"]);
+var app = angular.module("apps",["ngRoute", 'datatables']);
 
 app.config(function ($routeProvider){
     $routeProvider
@@ -11,6 +11,11 @@ app.config(function ($routeProvider){
     .when("/productos",{
         templateUrl: "productos.html",
         controller: "cajeroController"
+    })
+    .when("/productosex",{
+        templateUrl: "productoco.html",
+        controller: "cajeroController",
+        //template: "productos.html"
     })
 });
 

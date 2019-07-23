@@ -13,4 +13,9 @@ angular.
         controller: "cajeroController",
         //template: "productos.html"
     })
+    .when("/productosex",{
+        templateUrl: "productoco.html",
+        controller: "cajeroController",
+        //template: "productos.html"
+    })
 }]);

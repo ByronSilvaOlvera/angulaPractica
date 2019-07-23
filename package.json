@@ -14,5 +14,8 @@
     "by"
   ],
   "author": "byrons",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular-datatables": "^0.6.2"
+  }
 }
