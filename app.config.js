@@ -1,5 +1,6 @@
+'use strict';
 angular.
-  module('app').
+  module('apps').
   config(['$routeProvider',
     function config($routeProvider){
     $routeProvider
@@ -17,5 +18,8 @@ angular.
         templateUrl: "productoco.html",
         controller: "cajeroController",
         //template: "productos.html"
+    })
+    .when("/table",{
+        template: '<table-list></table-list>'
     })
 }]);

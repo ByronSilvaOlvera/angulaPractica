@@ -1,6 +1,7 @@
 'use strict';
 var app = angular.module("apps",["ngRoute", 'datatables']);
 
+/*
 app.config(function ($routeProvider){
     $routeProvider
     .when("/",{
@@ -18,6 +19,6 @@ app.config(function ($routeProvider){
         //template: "productos.html"
     })
 });
-
+*/
 
 

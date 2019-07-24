@@ -8,8 +8,17 @@
     <title>Document</title>
     <script src="angular.min.js"></script>
     <script src="angular-route.min.js"></script>
-    <script src="app.js"></script>
+
+    <!-- Configuracion de archivos -->
+    <script src="app-module.js"></script>
+    <script src="app.config.js"></script>
+    
+    <!-- modulo, componete, controladores -->
     <script src="cajeroController.js"></script>
+    <script src="table-model/table-module.js"></script>
+    <script src="table-model/table-component.js"></script>
+
+    <!--Diseño -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
@@ -24,11 +33,12 @@
 
 </head>
 
-<body ng-controller="cajeroController as lista">
+<body >
     <ul class="nav mb-3" role="tablist">
         <li class="nav-item"><a class="nav-link active" href="#!">Cajero</a></li>
         <li class="nav-item"><a class="nav-link active" href="#!productos">Productos</a></li>
         <li class="nav-item"><a class="nav-link active" href="#!productosex">Exportación</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#!table">Table</a></li>
     </ul>
     <div ng-view>
 
