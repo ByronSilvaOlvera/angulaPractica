@@ -1,0 +1,90 @@
+https://social.msdn.microsoft.com/Forums/fr-FR/8e9a92d2-3e95-4d39-bbc7-c690e4b3cf0d/guardar-cualquier-tipo-de-archivo-en-sql-server-usando-c?forum=vcses
+
+
+
+
+para quien guste probarlo y necesite ver cual es el codificador y decodificador en c# aqui estan las funciones.
+
+ 
+
+//Basado en lo publicado por otros
+
+           //Buscar el archivo
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Title = "Selecccionar Archivo";
+            dlg.Filter = "Todos (*.*)|*.*|Imagenes|*.jpg;*.gif;*.png;*.bmp";
+            DialogResult dlgRes = dlg.ShowDialog();
+            if (dlgRes != DialogResult.Cancel)
+            {
+            
+                //Direccion del archivo
+                this.txtDirArc.Text = dlg.FileName;
+            
+
+            }
+
+ 
+
+public string CodificarArchivo(string sNombreArchivo)
+        {
+            string sBase64 = "";
+            // Declaramos fs para tener acceso al archivo residente en la maquina cliente.
+            FileStream fs = new FileStream(sNombreArchivo, FileMode.Open);
+            // Declaramos un Leector Binario para accesar a los datos del archivo pasarlos a un arreglo de bytes
+            BinaryReader br = new BinaryReader(fs);
+            byte[] bytes = new byte[(int)fs.Length];
+            try
+            {
+                br.Read(bytes, 0, bytes.Length);
+                // base64 es la cadena en donde se guarda el arreglo de bytes ya convertido
+                sBase64 = Convert.ToBase64String(bytes);
+                return sBase64;
+          
+
+
+        }
+
+            catch
+            {
+                MessageBox.Show("Ocurri un error al cargar el archivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                return null;
+            }
+            // Se cierran los archivos para liberar memoria.
+            finally
+            {
+                fs.Close();
+                fs = null;
+                br = null;
+                bytes = null;
+            }
+        }
+
+ 
+
+ public string DecodificarArchivo(string sBase64)
+        {
+            // Declaramos fs para tener crear un nuevo archivo temporal en la maquina cliente.
+            // y memStream para almacenar en memoria la cadena recibida.
+            string sImagenTemporal = @"c:PRUEBA.mp3";  //Nombre del archivo y su extencion
+            FileStream fs = new FileStream(sImagenTemporal, FileMode.Create);
+            BinaryWriter bw = new BinaryWriter(fs);
+            byte[] bytes;
+            try
+            {
+                bytes = Convert.FromBase64String(sBase64);
+                bw.Write(bytes);
+                return sImagenTemporal;
+            }
+            catch
+            {
+                MessageBox.Show("Ocurrió un error al leer la imagen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                return sImagenTemporal = @"c:PRUEBA.MP3";
+            }
+            finally
+            {
+                fs.Close();
+                bytes = null;
+                bw = null;
+                sBase64 = null;
+            }
+        }
